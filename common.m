@@ -1,7 +1,7 @@
 %% Common settigns and methods
 %%
 %% Author: Tomasz Ceszke 2017
-
+ 
 clear ; close all; clc
 more off
 pkg load image;

@@ -9,7 +9,7 @@
 common;
 
 %% ----------- load learned factors
-load theta;
+load theta; 
 
 %% ----------- settings
 green_light_test_path = strcat(datasource_path_prefix,'test/green/');
