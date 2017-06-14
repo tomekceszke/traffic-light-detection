@@ -2,6 +2,6 @@
 Real time traffic light color detection using Machine Learning 
 
 
-[![Demo CountPages alpha](https://gfycat.com/RingedGrippingHerald)](https://www.youtube.com/watch?v=ek1j272iAmc)
+[![Demo CountPages alpha](https://giant.gfycat.com/RingedGrippingHerald.gif)](https://youtu.be/UsOpVFIdO-A)
   
   TBD...
