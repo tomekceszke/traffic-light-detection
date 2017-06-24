@@ -1,14 +1,19 @@
 %% This script will detect traffic ligth's color 
 %% in an infinitive loop.
-%% The image file name should be scene.png 
 %%
 %% Author: Tomasz Ceszke 2017
  
 %% ----------- init
-common;
+clear ; close all; 
+more off
+pkg load image;
+
+source('conf/settings.m');
+source('lib/features.m');
+source('lib/log_reg.m');
 
 %% ----------- load learned factors
-load theta;
+load 'theta.mat'; 
 
 %% ----------- settings
 live_image_path = strcat(datasource_path_prefix,'scene.png');
@@ -23,7 +28,12 @@ while 1
     disp('No image');
     continue;
   end
-  X = reshape(double(rgb2gray(live_image)),1,image_h*image_w);
+  
+  X = zeros(1,numel(live_image));
+  X = reshape(double(rgb2gray(live_image)),1,[]);
+  if normalization    
+    X = normalize(X,0);
+  end
   [r h] = recognize(theta,X);
   if r==1 
     color = 'GREEN';

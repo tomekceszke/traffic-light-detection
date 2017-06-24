@@ -6,31 +6,35 @@
 %% Author: Tomasz Ceszke 2017
 
 %% ----------- init
-common;
+clear ; close all; 
+more off
+pkg load image;
+
+source('conf/settings.m');
+source('lib/features.m');
+source('lib/log_reg.m');
 
 %% ----------- load learned factors
-load theta; 
+load 'theta.mat'; 
 
-%% ----------- settings
-green_light_test_path = strcat(datasource_path_prefix,'test/green/');
-yellow_light_test_path = strcat(datasource_path_prefix,'test/yellow/');
-red_light_test_path = strcat(datasource_path_prefix,'test/red/');
-
-%% ----------- datasource
-green_test_images = getImages(green_light_test_path);
+%% ----------- test data
+green_test_images = getImages(strcat(datasource_path_prefix,'test/green/'), extension);
 fprintf('Loaded %d green light test samples\n', columns(green_test_images));
-red_test_images = getImages(red_light_test_path);
+red_test_images = getImages(strcat(datasource_path_prefix,'test/red/'),extension);
 fprintf('Loaded %d red light test samples\n', columns(red_test_images));
 
-X_green_samples = [prepareFeature(green_test_images)];
-X_red_samples = [prepareFeature(red_test_images)];
-
 %% ----------- features
-X = [prepareFeature(green_test_images); prepareFeature(red_test_images)];
+X = [prepareFeatures(green_test_images); prepareFeatures(red_test_images)];
+if normalization
+  fprintf('Normalizing...')
+  X  = normalize(X,0);
+  fprintf('\n')
+end
 
 %% ----------- labels
 Y = [ones(columns(green_test_images),1); zeros(columns(red_test_images),1)];
 
 %% ----------- check accuracy
+fprintf('Testing...')
 accuracy = recognize(theta,X);
 fprintf('\nAccuracy for test samples: %d%%\n\n',round(mean(double(accuracy == Y)) * 100));
