@@ -1,6 +1,8 @@
 # traffic-light-detection
 Real time traffic light color detection using Machine Learning 
 
-  ![sample](doc/mov/poc.gif)
+
+[![Proof of concept](doc/img/poc.gif)](https://youtu.be/UsOpVFIdO-A)
+
   
   TBD...
