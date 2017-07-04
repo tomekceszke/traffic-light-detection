@@ -18,12 +18,12 @@ Written in pure Matlab using only basic matrix operations.
 
 ## Learn (optional)
 * collect some training samples using [bin/collectSamples.bat](bin/collectSamples.bat)
-* then put them to the respective directories under [datasource/train]([datasource/train])
+* then put them to the respective directories under [datasource/train/]([datasource/train/])
 * run [learn.m](learn.m) script in Matlab/Octave
 
 ## Test (optional)
 * collect some test samples using [bin/collectSamples.bat](bin/collectSamples.bat)
-* then put them to the respective directories under [datasource/test]([datasource/test])
+* then put them to the respective directories under [datasource/test/]([datasource/test/])
 * run [check.m](test.m) script
 
 ## Detect
