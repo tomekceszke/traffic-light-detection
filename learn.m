@@ -11,20 +11,12 @@ source('conf/settings.m');
 source('lib/features.m');
 source('lib/log_reg.m');
 
-%% ----------- learn settings
-iterations = 10;
-lambda = 0.1; % regularization
-alpha = 0.01; % learning rate
-samples_to_show = 5;
-
 %% ----------- datasource
 fprintf('Loading data...\n')
 green_images = getImages(strcat(datasource_path_prefix,'train/green/'), extension);
 fprintf('Loaded %d green light samples\n', columns(green_images));
-%imshow(green_images{1});
 red_images = getImages(strcat(datasource_path_prefix,'train/red/'), extension);
 fprintf('Loaded %d red light samples\n', columns(red_images));
-%imshow(red_images{1})
 fprintf('Press any key...\n');
 pause;
 
@@ -33,7 +25,6 @@ fprintf('Preparing features...\n')
 X = [prepareFeatures(green_images); prepareFeatures(red_images)];
 displaySamples(green_images, red_images, samples_to_show);
 fprintf('Sample features: %d  %d  %d\n', X(1), X(2), X(3));
-
 if normalization
   fprintf('Normalizing...')
   X  = normalize(X,1);
@@ -48,13 +39,12 @@ y = [ones(columns(green_images),1); zeros(columns(red_images),1)];
 %% ----------- train
 fprintf('Press any key...\n');
 pause;
-
-%% ----- gradient descent
+% gradient descent
 fprintf('Training using gradient descent method...');
 %tic
 [theta cost] = trainUsingGradient(X,y,alpha,lambda,iterations);
 %toc
-save theta_grad.mat theta;
+save theta.mat theta;
 figure;
 plot(1:numel(cost), cost, '-b', 'LineWidth', 3);
 xlabel('Number of iterations');
@@ -64,6 +54,8 @@ hold on;
 %% check accuracy
 accuracy = recognize(theta,X);
 fprintf('\nDone.\n Final cost: %.3f \t Accuracy: %d%% \t Sample thetas: %f  %f  %f\n\n', cost(end),round(mean(double(accuracy == y)) * 100), theta(1), theta(2), theta(3));
+
+
 %fprintf('Press any key...\n');
 %pause;
 
@@ -78,14 +70,4 @@ fprintf('\nDone.\n Final cost: %.3f \t Accuracy: %d%% \t Sample thetas: %f  %f  
 %% check accuracy
 %accuracy = recognize(theta,X);
 %fprintf('\nDone.\n Final cost: %.3f \t Accuracy: %d%% \t Sample thetas: %f  %f  %f\n\n', cost(end),round(mean(double(accuracy == y)) * 100), theta(1), theta(2), theta(3));
-
-
-
-
-
-
-
-
-
-
 

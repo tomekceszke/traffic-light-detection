@@ -16,7 +16,7 @@ source('lib/log_reg.m');
 load 'theta.mat'; 
 
 %% ----------- settings
-live_image_path = strcat(datasource_path_prefix,'scene.png');
+live_image_path = strcat(datasource_path_prefix,'live/scene.png');
 
 %% 
 fprintf('Path to detect: %s \n\n',live_image_path);

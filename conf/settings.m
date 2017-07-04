@@ -1,3 +1,8 @@
 normalization = 1;
-datasource_path_prefix = 'datasource/traffic_lights_wejherowo/';
+iterations = 10;
+lambda = 0.1; % regularization
+alpha = 0.01; % learning rate
+
+samples_to_show = 5;
+datasource_path_prefix = 'datasource/';
 extension = '*.png';
