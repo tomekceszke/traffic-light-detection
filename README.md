@@ -2,8 +2,8 @@
 Real time traffic light color detection using Machine Learning. 
 Written in pure Matlab using only basic matrix operations.
 
-Classification algorithm: logsitic regression
-Optimization algorithm: gradient descent 
+* Classification algorithm: logsitic regression
+* Optimization algorithm: gradient descent 
 
 [![Proof of concept](doc/img/poc.gif)](https://youtu.be/UsOpVFIdO-A)
 
