@@ -1,32 +1,37 @@
-# traffic-light-detection
+# Traffic Light Detection
 Real time traffic light color detection using Machine Learning. 
 Written in pure Matlab using only basic matrix operations.
 
-* Classification algorithm: logsitic regression
-* Optimization algorithm: gradient descent 
+* Classification method: Logistic Regression
+* Optimization: Gradient Descent 
 
 [![Proof of concept](doc/img/poc.gif)](https://youtu.be/UsOpVFIdO-A)
 
+## Note
+- *Written only for educational purposes*
+- *Intentionally written in pure Matlab language, using only basic mathematics operations*
 
-### Training samples
+
+## Training samples
 ![samples](doc/img/training_samples.jpg)
 
 
-### Training efficiency
+## Training efficiency
 ![red_sample](doc/img/min.jpg)
 
 
-## Learn (optional)
+## Run
+### Learn (optional)
 * collect some training samples using [bin/collectSamples.bat](bin/collectSamples.bat)
 * then put them to the respective directories under datasource/train/
 * run [learn.m](learn.m) script in Matlab/Octave
 
-## Test (optional)
+### Test (optional)
 * collect some test samples using [bin/collectSamples.bat](bin/collectSamples.bat)
 * then put them to the respective directories under datasource/test/
 * run [check.m](test.m) script
 
-## Detect
+### Detect
 * open live stream using [bin/startStream.bat](bin/startStream.bat) 
 * run [detect.m](detect.m) script
 
