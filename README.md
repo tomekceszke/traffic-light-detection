@@ -1,6 +1,7 @@
 # Traffic Light Detection
-Real time traffic light color detection using Machine Learning. 
-Written in pure Matlab using only basic matrix operations.
+This Octave/Matlab script can detect traffic light color analysing live stream.
+It is trained by few already described samples. 
+
 
 * Classification method: Logistic Regression
 * Optimization: Gradient Descent 
@@ -9,7 +10,7 @@ Written in pure Matlab using only basic matrix operations.
 
 ## Note
 - *Written only for educational purposes*
-- *Intentionally written in pure Matlab language, using only basic mathematics operations*
+- *Intentionally written in pure Matlab language, using only elementary arithmetic operations:*
 
 
 ## Training samples
