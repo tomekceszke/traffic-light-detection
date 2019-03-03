@@ -1,1 +1,8 @@
 octave-workspace
+*.mat
+datasource/collected/*
+datasource/live/*
+datasource/test/green/*
+datasource/test/red/*
+datasource/train/green/*
+datasource/train/red/*
